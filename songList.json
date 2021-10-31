@@ -1,11 +1,82 @@
 
 [
     {
-    "Title" : "Fine Wine and Hennessy" ,
-    "Artist" : "Afro B, Slim Jxmmi" ,
-    "Genre" : "Rap",
-    "Released" : "2019"
+        "Title" : "Fine Wine and Hennessy" ,
+        "Artist" : "Afro B, Slim Jxmmi" ,
+        "Genre" : "Rap",
+        "Released" : "2019"
+    },
+
+    {
+        "Title " : "I Like Dat" ,
+        "Artist" : "T-Pain, Kehlani" ,
+        "Genre" : "R'n'B" ,
+        "Released" : "2021"
+    },
+
+    {
+        "Title " : "Chosen",
+        "Artist" : "Rytikal",
+        "Genre" : "Reggae",
+        "Released" : "2021"
+    },
+
+    {
+        "Title " : "Hood",
+        "Artist" : "Desiigner",
+        "Genre" : "Hip-Hop/Rap",
+        "Released" : "2018"
+
+    },
+
+    {       
+        "Title " : "100 of Us",
+        "Artist" : "Kash Doll",
+        "Genre" : "Hip-Hop/Rap",
+        "Released" : "2016"
+    },
+
+    {
+        "Title " : "Like That",
+        "Artist" : "Doja Cat, Gucci Mane",
+        "Genre" : "R'n'B/Soul",
+        "Released" : "2019"
+    },
+
+    {   
+        "Title " : "At My Worst",
+        "Artist" : "Pink Sweat$",
+        "Genre" : "R'n'B/Soul",
+        "Released" : "2021"
+    },
+
+    {
+        "Title " : "Middle of a Memory",
+        "Artist" : "Cole Swindell",
+        "Genre" : "Country",
+        "Released" : "2016"
+    },
+
+    {
+        "Title " : "Famous Friends",
+        "Artist" : "Chris Young and Kane Brown",
+        "Genre" : "Country",
+        "Released" : "2021"
+    },
+
+    {
+        "Title " : "Young, Wild & Free",
+        "Artist" : "Snoop Dogg & wiz Khalifia",
+        "Genre" : "Rap",
+        "Released" : "2011"
+
+    },
+
+    {
+        "Title " : "I'm Fine",
+        "Artist" : "Cyhi The Prince",
+        "Genre" : "Rap",
+        "Released" : "2017"
 
     }
-
 ]
