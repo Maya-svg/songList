@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<head>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        function process(){
+            x = document.getElementById("choice").value;
+            filter(x)
+        }
+
+        function filter(x){
+            let fst = "";
+            for(i=0;i<songs.length;i++){
+                for(j=0;j<songs[i].Genre.length;j++){
+                    if(songs[i].Genre[j]==x){
+                        matches.push(songs[i]);
+                        matched = true;
+                    }
+                }
+            }
+            
+            for(i=0;i<matches.length;i++){
+                    fst += "<div class='col'>"
+                      + matches[i].Title + "<br>"
+                      + "Artist: " + matches[i].Artist + "<br>"
+                      + "Genre: ";
+                for(j=0;j<matches[i].Genre.length;j++){
+                    fst += matches[i].Genre[j] ;
+                }
+                    fst += "<br>" 
+                    + "Released: " + matches[i].Released 
+                    + " </div>";
+            }
+            display(fst,x);
+            matches=[];
+        }
+
+        function display(info,x){
+            if (matched == true){
+                document.getElementById("heading").innerHTML= x;
+                document.getElementById("view").innerHTML= info;
+
+            }else{
+                document.getElementById("heading").innerHTML= "Playlist";
+                document.getElementById("view").innerHTML= info;
+            } 
+        }
+    </script>
+
+    <style>
+        body{
+            background-color: rgb(171, 171, 221);
+        }
+        .col{
+            width: calc(50% - 28px);
+            float: left;
+            padding: 10px;
+            border: solid 2px black;
+            margin: 2px;
+        } 
+        #heading{
+            margin-top: 2%;
+            margin-bottom: 1%;
+            font-size: 300%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+
+        }
+        #view{
+            font-size: large;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            width: 100%;
+            margin-bottom: 4%;
+        }
+        button{
+            width:20%;
+            background-color: none;
+            border: none;
+            font-size: large;
+            font-family:Verdana, Geneva, Tahoma, sans-serif
+        }
+        #choice{
+            position: center;
+            width: 30%;
+            font-size: large;
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .col{
+                
+            width: calc(600px - 28px);
+            }
+        }
+        @media screen and (max-width: 400px) {
+            .col{
+            width: calc(380px - 28px);
+            }
+            #choice{
+                width:60%;
+                font-size: medium;
+            }
+        }
+    </style>
+</head>
+
+<body onload =pageLoad()>
+
+    <script language = "javascript">
+        $(document).ready(function() {
+            songs = [];
+            matches = [];
+            matched = new Boolean(false);
+            let st = "";
+            
+            $.get("https://maya-svg.github.io/songList/songList.json",
+                function(data) { 
+                str = JSON.stringify(data);
+		        
+                data.forEach(function(song) { 
+                    songs.push(song);
+			    });
+
+                for(i=0;i<songs.length;i++){
+                    st += "<div class='col'>"
+                        + songs[i].Title + "<br>"
+                        + "Artist: " 
+                        + songs[i].Artist + "<br>"
+                        + "Genre: ";
+
+                    for(j=0;j<songs[i].Genre.length;j++){
+                        st += songs[i].Genre[j]
+                        + ", ";
+                    }
+                    st += "<br>"
+                        + "Released: " 
+                        + songs[i].Released
+                        + " </div>";
+                }
+                display(st);
+            });
+        });
+    </script>
+
+    <!-- Display  -->
+    <div id ="heading"></div>
+    <div id = "view"></div> 
+
+    <form>
+        <select id = "choice">
+            <option value="">  Select a Genre  </option>
+            <option value= "Country"> Country </option>
+            <option value= "R'n'B">  R n' B </option>
+            <option value= "Reggae"> Reggae </option> 
+            <option value= "Rap"> Rap </option> 
+            <option value= "Soul"> Soul </option> 
+            <option value= "Pop"> Pop </option>        
+        </select>
+        <button type = "button" id ="filter" onclick="process()"> Filter </button>
+    </form>
+</body> 
+</html>
