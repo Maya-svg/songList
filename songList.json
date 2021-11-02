@@ -78,5 +78,11 @@
         "Genre" : ["Rap"],
         "Released" : "2017"
 
+    },
+    {
+        "Title" : "Hot Shower",
+        "Artist" : "Chance the Rapper & DaBaby",
+        "Genre" : ["Rap", "Hip-Hop"],
+        "Released" : "2019"
     }
 ]
